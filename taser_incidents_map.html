@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_36aec0b3253feba6cefd4167ce12c8e8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    min-height: 100vh;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .folium-map {
+                    height: 100vh;
+                    min-height: 100vh;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <style>
+                @media (max-width: 768px) {
+                    .leaflet-container { font-size: 0.95rem; }
+                    .leaflet-control-zoom a {
+                        width: 36px;
+                        height: 36px;
+                        line-height: 36px;
+                    }
+                    .leaflet-control-zoom {
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                    }
+                    .leaflet-popup-content {
+                        margin: 10px 12px;
+                        max-width: 260px;
+                    }
+                }
+            </style>
+
+            <style>
+                .marker-cluster-custom {
+                    background: rgba(0, 0, 0, 0.1);
+                    border: 2px solid rgba(0, 0, 0, 0.4);
+                    border-radius: 999px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                }
+                .marker-cluster-custom .cluster-badge {
+                    background: #111;
+                    color: #fff;
+                    width: 32px;
+                    height: 32px;
+                    line-height: 32px;
+                    border-radius: 999px;
+                    font-weight: 600;
+                    text-align: center;
+                    margin: 3px;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_36aec0b3253feba6cefd4167ce12c8e8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_36aec0b3253feba6cefd4167ce12c8e8 = L.map(
+                "map_36aec0b3253feba6cefd4167ce12c8e8",
+                {
+                    center: [44.1821793930738, 11.106051674844938],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+                        var tile_layer_69ca9950c41ce8343c36095a6f974de8 = L.tileLayer(
+                                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+    "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_69ca9950c41ce8343c36095a6f974de8.addTo(map_36aec0b3253feba6cefd4167ce12c8e8);
+        
+    
+                        var taser_icon = L.icon({
+                                iconUrl: "./map-marker-alt-svgrepo-com.svg",
+                                iconSize: [20, 20],
+                                iconAnchor: [10, 20],
+                                popupAnchor: [0, -20]
+                        });
+
+                        var marker_cluster_f709f0eddea58a46091abca00ec41d0a = L.markerClusterGroup(
+                                {
+    iconCreateFunction: function (cluster) {
+        var count = cluster.getChildCount();
+        return L.divIcon({
+            html: '<div class="cluster-badge">' + count + '</div>',
+            className: 'marker-cluster marker-cluster-custom',
+            iconSize: L.point(40, 40)
+        });
+    }
+}
+                        );
+        
+    
+            var marker_aa74bb446b77e59997dc285fd47c56ad = L.marker(
+                [42.417, 14.2],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_db164491a974448de1f60dbbd63a3d5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_250570be8950ff42d48714db1cac5ee6 = $(`<div id="html_250570be8950ff42d48714db1cac5ee6" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2023-08-14<br><b>victim_name</b>: Simone Di Gregorio<br><b>victim_age</b>: 35<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: San Giovanni Teatino, Chieti<br><b>evidence_quotes</b>: ['È una morte da chiarire quella del 35enne Simone Di Gregorio, avvenuta domenica pomeriggio (13 agosto)', 'Si è fermato col taser, è stato sedato, si è accasciato a terra ed è morto.']<br><b>url</b>: https://gds.it/articoli/cronaca/2023/08/14/fermato-con-il-taser-muore-in-strada-indagini-per-omicidio-colposo-f28ff3ae-16e6-4337-8f18-ccf73f5a4127</div>`)[0];
+                popup_db164491a974448de1f60dbbd63a3d5a.setContent(html_250570be8950ff42d48714db1cac5ee6);
+            
+        
+
+        marker_aa74bb446b77e59997dc285fd47c56ad.bindPopup(popup_db164491a974448de1f60dbbd63a3d5a)
+        ;
+
+        
+    
+    
+            var marker_de957d1ff7f15756f9c24fe219408cb9 = L.marker(
+                [46.937847, 11.443709],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_b3cbbccbb1870410eb2cc953e4823971 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b0ecd82f6ee2c009c0436337147c521 = $(`<div id="html_7b0ecd82f6ee2c009c0436337147c521" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2024-07-11<br><b>victim_name</b>: Carlo Lattanzio<br><b>victim_age</b>: 42<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: piazza Ibsen, Colle Isarco, provincia di Bolzano<br><b>evidence_quotes</b>: ['hanno usato il "taser" in dotazione.', "ha accusato un malore costringendo il medico d'urgenza a effettuare le manovre di rianimazione"]<br><b>url</b>: https://www.trentotoday.it/cronaca/carlo-lattanzio-taser.html</div>`)[0];
+                popup_b3cbbccbb1870410eb2cc953e4823971.setContent(html_7b0ecd82f6ee2c009c0436337147c521);
+            
+        
+
+        marker_de957d1ff7f15756f9c24fe219408cb9.bindPopup(popup_b3cbbccbb1870410eb2cc953e4823971)
+        ;
+
+        
+    
+    
+            var marker_4e901ab8cda16d7c54bda75528ff1f9e = L.marker(
+                [42.461788, 14.21609],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_8f5ea77a5be0a612898b5c563a422ad2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdfe9fefe4573810b494fa60348cc2a9 = $(`<div id="html_fdfe9fefe4573810b494fa60348cc2a9" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-06-03<br><b>victim_name</b>: Riccardo Zappone<br><b>victim_age</b>: 30<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: Pescara<br><b>evidence_quotes</b>: ['Un uomo di 30 anni è morto dopo essere stato colpito da un taser utilizzato dagli agenti di polizia durante un intervento.', 'Durante un intervento per sedare una rissa a Pescara, un uomo di 30 anni, Riccardo Zappone, è stato fermato dalla polizia.']<br><b>url</b>: https://www.notizie.it/dramma-pescara-morto-30enne-colpito-taser-prime-ipotesi</div>`)[0];
+                popup_8f5ea77a5be0a612898b5c563a422ad2.setContent(html_fdfe9fefe4573810b494fa60348cc2a9);
+            
+        
+
+        marker_4e901ab8cda16d7c54bda75528ff1f9e.bindPopup(popup_8f5ea77a5be0a612898b5c563a422ad2)
+        ;
+
+        
+    
+    
+            var marker_1679f1b1e966a137931f222623a3f44c = L.marker(
+                [43.8861987861476, 10.768394349689878],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_35cd22e8fd8fa306b5e55c95d37662a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ec87ae07dda950bab81c831e783411f = $(`<div id="html_1ec87ae07dda950bab81c831e783411f" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-06-06<br><b>victim_name</b>: Ana Maria Andrei<br><b>victim_age</b>: 27<br><b>victim_nationality</b>: Romena<br><b>incident_location</b>: Bosco delle Panteraie, vicino Montecatini Terme, Pistoia, Toscana, Italia<br><b>evidence_quotes</b>: ["L'anno scorso ho ucciso anche Ana Maria Andrei", 'Voglio la verità, era davvero necessario usare quella pistola elettrica?']<br><b>url</b>: https://www.ilmattino.it/primopiano/cronaca/vigilante_donne_uccise_denisa_ana_maria_andrei_scomparsa-8882206.html</div>`)[0];
+                popup_35cd22e8fd8fa306b5e55c95d37662a0.setContent(html_1ec87ae07dda950bab81c831e783411f);
+            
+        
+
+        marker_1679f1b1e966a137931f222623a3f44c.bindPopup(popup_35cd22e8fd8fa306b5e55c95d37662a0)
+        ;
+
+        
+    
+    
+            var marker_4c9e2ea7a6eeadd76d25572e7761fd11 = L.marker(
+                [40.930141111664334, 9.46008351787125],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_ea38b5c93d4576666fe6c40201408148 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cfe23ef391785cae50ea9f07e11b99de = $(`<div id="html_cfe23ef391785cae50ea9f07e11b99de" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-08-17<br><b>victim_name</b>: Giampaolo Demartis<br><b>victim_age</b>: 57<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: Santa Mariedda, Olbia<br><b>evidence_quotes</b>: ['Si chiamava Giampaolo Demartis, aveva 57 anni ed era originario di Bultei, in provincia di Sassari.', 'A Olbia un uomo è morto in ambulanza mentre veniva trasportato in ospedale dopo che i Carabinieri gli hanno sparato con un taser , una pistola a impulsi elettrici.']<br><b>url</b>: https://www.ilpost.it/2025/08/17/olbia-uomo-morto-taser-indagine-tempio-pausania</div>`)[0];
+                popup_ea38b5c93d4576666fe6c40201408148.setContent(html_cfe23ef391785cae50ea9f07e11b99de);
+            
+        
+
+        marker_4c9e2ea7a6eeadd76d25572e7761fd11.bindPopup(popup_ea38b5c93d4576666fe6c40201408148)
+        ;
+
+        
+    
+    
+            var marker_32e7b0d3b74d31a9565813003f879d93 = L.marker(
+                [44.47816, 8.92784],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_a7572b6fd2712681d010a0610dbb5841 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b528c018a65a6f9d957de122a043b06 = $(`<div id="html_7b528c018a65a6f9d957de122a043b06" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-08-18<br><b>victim_name</b>: Elton Bani<br><b>victim_age</b>: 41<br><b>victim_nationality</b>: albanese<br><b>incident_location</b>: Manesseno, Sant’Olcese, Genova<br><b>evidence_quotes</b>: ['Elton Bani, 41 anni', 'nei pressi della sua abitazione a Sant’Olcese']<br><b>url</b>: https://www.corriere.it/cronache/25_agosto_18/taser-41enne-muore-colpito-da-tre-scosse-seconda-vittima-in-48-ore-indagati-4-carabinieri-54749c74-5c96-4b02-b043-2b3bb4a4cxlk.shtml</div>`)[0];
+                popup_a7572b6fd2712681d010a0610dbb5841.setContent(html_7b528c018a65a6f9d957de122a043b06);
+            
+        
+
+        marker_32e7b0d3b74d31a9565813003f879d93.bindPopup(popup_a7572b6fd2712681d010a0610dbb5841)
+        ;
+
+        
+    
+    
+            var marker_a70c3679a1846e728b868e03075c06af = L.marker(
+                [44.7348727, 10.6988416],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_b4879d0f98da84cbf5d7bc24b07d7876 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8474f601a4d1dfb6e38072c11de71bb7 = $(`<div id="html_8474f601a4d1dfb6e38072c11de71bb7" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-09-15<br><b>victim_name</b>: Claudio Citro<br><b>victim_age</b>: 41<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: Massenzatico, Reggio Emilia<br><b>evidence_quotes</b>: ['Dalle prime informazioni, si tratta di Claudio Citro , di 41 anni', 'intorno alle 6, è stato necessario l’utilizzo della pistola a impulsi elettrici – taser – da parte della Polizia di Stato per contenerlo.']<br><b>url</b>: https://www.lanuovasardegna.it:443/regione/2025/09/15/news/muore-a-reggio-emilia-dopo-essere-stato-colpito-col-taser-terzo-caso-in-un-mese-dopo-olbia-e-genova-1.100761446</div>`)[0];
+                popup_b4879d0f98da84cbf5d7bc24b07d7876.setContent(html_8474f601a4d1dfb6e38072c11de71bb7);
+            
+        
+
+        marker_a70c3679a1846e728b868e03075c06af.bindPopup(popup_b4879d0f98da84cbf5d7bc24b07d7876)
+        ;
+
+        
+    
+    
+            var marker_52b759a8a7e171e7f52a3b190a042c26 = L.marker(
+                [45.5467, 11.5475],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_5054c95ce4fa068a26717653a9e8d05c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f063a8a15ef149894e0404190468607 = $(`<div id="html_4f063a8a15ef149894e0404190468607" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-09-22<br><b>victim_name</b>: Danilo Riahi<br><b>victim_age</b>: 17<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: Vicenza<br><b>evidence_quotes</b>: ['un ragazzo di 17 anni immobilizzato a Vicenza dopo una rapina e una tentata rapina, fermato con il taser e arrestato', 'giunto nel carcere minorile di Treviso Riahi si è tolto la vita']<br><b>url</b>: https://corrieredelveneto.corriere.it/notizie/cronaca/25_settembre_22/taser-in-veneto-le-dotazioni-e-la-formazione-le-forze-dell-ordine-lunghi-corsi-i-morti-non-per-colpa-delle-scariche-elettriche-65c3e99f-b6a7-49ec-a52a-a39ab25e8xlk.shtml</div>`)[0];
+                popup_5054c95ce4fa068a26717653a9e8d05c.setContent(html_4f063a8a15ef149894e0404190468607);
+            
+        
+
+        marker_52b759a8a7e171e7f52a3b190a042c26.bindPopup(popup_5054c95ce4fa068a26717653a9e8d05c)
+        ;
+
+        
+    
+    
+            var marker_cfa2951bd1cf31119c842ca6f899d85d = L.marker(
+                [40.8358, 14.2386],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_cfb1d4423a534fa5da4d5b28194c3e7a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_991faedcdc618501484c773e7261912f = $(`<div id="html_991faedcdc618501484c773e7261912f" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-10-06<br><b>victim_name</b>: Antony Ihaza Ehogonoh<br><b>victim_age</b>: 35<br><b>victim_nationality</b>: napoletano, origini nordafricane<br><b>incident_location</b>: Via Fornelli, Chiaia, Napoli<br><b>evidence_quotes</b>: ['un uomo di 35 anni deceduto in ambulanza dopo essere stato colpito con un taser dai carabinieri', 'La vittima, Antony Ihaza Ehogonoh, era in stato di alterazione']<br><b>url</b>: https://www.ilmattino.it/schede/aggredisce_carabinieri_bloccato_taser_35enne_muore_ambulanza_antony_ihaza_ehogonoh-9110947.html</div>`)[0];
+                popup_cfb1d4423a534fa5da4d5b28194c3e7a.setContent(html_991faedcdc618501484c773e7261912f);
+            
+        
+
+        marker_cfa2951bd1cf31119c842ca6f899d85d.bindPopup(popup_cfb1d4423a534fa5da4d5b28194c3e7a)
+        ;
+
+        
+    
+    
+            var marker_07a12a9d5b5c461698d1c4f019674341 = L.marker(
+                [45.4642, 9.19],
+                {
+    "icon": taser_icon,
+}
+            ).addTo(marker_cluster_f709f0eddea58a46091abca00ec41d0a);
+        
+    
+        var popup_245ec7e781d5959181c5f79da7ccfd1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_533a3825a1769eb3c0e49d7a94e4e95e = $(`<div id="html_533a3825a1769eb3c0e49d7a94e4e95e" style="width: 100.0%; height: 100.0%;"><b>incident_date</b>: 2025-10-08<br><b>victim_name</b>: Igor Squeo (VERIFICARE STORIA)<br><b>victim_age</b>: 33<br><b>victim_nationality</b>: Italiano<br><b>incident_location</b>: Milano<br><b>evidence_quotes</b>: ['Igor Squeo non è morto per overdose da cocaina.', 'un 33enne che morì per arresto cardiocircolatorio nel corso di un intervento di polizia nel suo appartamento di Milano.']<br><b>url</b>: https://www.editorialedomani.it/fatti/il-taser-e-il-soffocamento-mio-figlio-morto-dopo-lintervento-della-polizia-igor-squeo-qn29la7g</div>`)[0];
+                popup_245ec7e781d5959181c5f79da7ccfd1e.setContent(html_533a3825a1769eb3c0e49d7a94e4e95e);
+            
+        
+
+        marker_07a12a9d5b5c461698d1c4f019674341.bindPopup(popup_245ec7e781d5959181c5f79da7ccfd1e)
+        ;
+
+        
+    
+    
+            marker_cluster_f709f0eddea58a46091abca00ec41d0a.addTo(map_36aec0b3253feba6cefd4167ce12c8e8);
+        
+    
+            tile_layer_69ca9950c41ce8343c36095a6f974de8.addTo(map_36aec0b3253feba6cefd4167ce12c8e8);
+        
+    
+            marker_cluster_f709f0eddea58a46091abca00ec41d0a.addTo(map_36aec0b3253feba6cefd4167ce12c8e8);
+        
+</script>
+</html>
